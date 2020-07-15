@@ -1,14 +1,14 @@
-const Employee = require("./Employee");
+// const Employee = require("./Employee");
 
-class Intern {
+// class Intern {
    
-    constructor(github) {
-        this.github = github;
+//     constructor(github) {
+//         this.github = github;
       
-    }
+//     }
     
-}
-const e = new Intern("Aldo",5,"aldo.patino@example.com")
+// }
+// const e = new Intern("Aldo",5,"aldo.patino@example.com")
 
-module.exports = 
-    Engineer
+// module.exports = 
+//     Engineer
