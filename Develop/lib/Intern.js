@@ -1,1 +1,14 @@
-// TODO: Write code to define and export the Intern class.  HINT: This class should inherit from Employee.
+const Employee = require("./Employee");
+
+class Intern {
+   
+    constructor(github) {
+        this.github = github;
+      
+    }
+    
+}
+const e = new Intern("Aldo",5,"aldo.patino@example.com")
+
+module.exports = 
+    Engineer
