@@ -5,12 +5,23 @@ class Employee {
         this.id = id;
         this.email = email;
     }
-    
+ getName(){
+        return this.name
+    }
+  getId(){
+      return this.id
+  }
+  getEmail(){
+      return this.email
+  }
+  getRole(){
+      return "Employee"
+  }
 }
-const e = new Employee("Aldo",5,"aldo.patino@example.com")
 
-module.exports = {
-    Employee,
-    e
 
-};
+
+module.exports = 
+    Employee
+    
+
