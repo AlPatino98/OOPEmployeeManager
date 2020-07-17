@@ -9,8 +9,145 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+//array of questions
+        const questions = [
+      {
+        type: "input",
+        name: "role",
+        message: "What is the new employee's role?"
+      }];  
+//manager questions
+      const mQuestions =[      
+          {
+        type: "input",
+        name: "name",
+        message: "name:"
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "Id:"
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "email:"
+      },
+      {
+        type: "input",
+        name: "office",
+        message: "office number:"
+      },
+      {
+        type: "input",
+        name: "continue",
+        message: "would you like to add another employee?:"
+      }
+       ]
+// intern questions
+    const iQuestions =[      
+    {
+      type: "input",
+      name: "name",
+      message: "name:"
+    },
+    {
+      type: "input",
+      name: "id",
+      message: "Id:"
+    },
+    {
+      type: "input",
+      name: "email",
+      message: "email:"
+    },
+    {
+      type: "input",
+      name: "office",
+      message: "office number:"
+    },
+    {
+        type: "input",
+        name: "school",
+        message: "school:"
+    },
+    {
+        type: "input",
+        name: "continue",
+        message: "would you like to add another employee?:"
+    }
+  ]
+// engineer questions
+  const eQuestions =[      
+{
+  type: "input",
+  name: "name",
+  message: "name:"
+},
+{
+  type: "input",
+  name: "id",
+  message: "Id:"
+},
+{
+  type: "input",
+  name: "email",
+  message: "email:"
+},
+{
+  type: "input",
+  name: "github",
+  message: "Github username:"
+},
+{
+  type: "input",
+  name: "continue",
+  message: "would you like to add another employee?:"
+}
+]
+    
+    
+function promptUser() {
+    inquirer.prompt(questions)
+    .then(answer => {
+        if (answer.role.toLowerCase() === "manager"){
+          inquirer.prompt(mQuestions)
+         .then( answer =>{
+           if (answer.continue.toLowerCase()=== "yes")
+           { promptUser()
+            var intern = new Intern(answer.email, answer.name, answer.id, answer.school) 
+            employeeAns.push(intern)}
+           else {return}
+        });
+        }else if (answer.role.toLowerCase() === "intern"){
+          inquirer.prompt(iQuestions)
+          .then( answer =>{
+            if (answer.continue.toLowerCase()=== "yes")
+            { promptUser()
+            var intern = new Intern(answer.email, answer.name, answer.id, answer.school) 
+            employeeAns.push(intern)}
+            else {return}
+        });
+        } else if (answer.role.toLowerCase() === "engineer"){
+          inquirer.prompt(eQuestions)
+          .then( answer =>{
+            if (answer.continue.toLowerCase()=== "yes")
+            { promptUser()
+            var intern = new Intern(answer.email, answer.name, answer.id, answer.school) 
+            employeeAns.push(intern)}
+            else {return}
+        });
+        }else {console.log("exit")}
+        });
+}
+// prompt user the questions
+promptUser()
+
+const employeeAns= [];
 
 
+
+render(employeeAns);
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
